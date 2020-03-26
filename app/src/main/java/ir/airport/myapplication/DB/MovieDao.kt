@@ -17,7 +17,7 @@ interface MovieDao {
     fun insert(vararg movieClass: MovieClass)
 
 
-    @Query("SELECT * FROM Movie")
+    @Query("SELECT DISTINCT * FROM Movie GROUP BY Title")
     fun getMovieList(): List<MovieClass>
 
     @Query("SELECT * FROM Movie WHERE MovId=MovId")
