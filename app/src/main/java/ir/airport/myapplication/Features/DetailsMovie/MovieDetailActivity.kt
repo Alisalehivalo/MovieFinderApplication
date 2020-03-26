@@ -1,18 +1,13 @@
 package ir.airport.myapplication.Features.DetailsMovie
 
-import android.content.Intent
-import android.os.AsyncTask
 import android.os.Bundle
-import android.provider.ContactsContract.CommonDataKinds.Note
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.GravityCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.textfield.TextInputEditText
 import com.squareup.picasso.Picasso
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -21,20 +16,18 @@ import ir.airport.myapplication.DB.MovieClass
 import ir.airport.myapplication.DB.MovieDao
 import ir.airport.myapplication.DB.MovieDataBase
 import ir.airport.myapplication.Features.ArchiveData.MovieArchiveAdapter
-import ir.airport.myapplication.Features.ArchiveData.MovieVM
 import ir.airport.myapplication.Pojo.MovieDetailedResponceModel
 import ir.airport.myapplication.R
 import ir.airport.myapplication.Retrofit.DaggerFactoryComponent
 import ir.airport.myapplication.Utils.Consts
 import kotlinx.android.synthetic.main.activity_movie_detail.*
-import java.lang.ref.WeakReference
 
 
 class MovieDetailActivity : AppCompatActivity() {
 
     lateinit var vm: MovieDetailedVM
     //private val newMovieActivityRequestCode = 1
-    lateinit var movieVM: MovieVM
+    //lateinit var movieVM: MovieVM
     private var db:MovieDataBase?=null
    private var moviedao:MovieDao?=null
 
