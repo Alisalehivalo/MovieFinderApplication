@@ -2,14 +2,16 @@ package ir.airport.myapplication.Features.SearchInfoMovie
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.KeyEvent
 import android.view.View
+import android.view.inputmethod.EditorInfo
+import android.widget.TextView.OnEditorActionListener
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.disposables.CompositeDisposable
-import ir.airport.myapplication.Features.ArchiveData.ArchiveMovieActivity
 import ir.airport.myapplication.Features.DetailsMovie.MovieDetailActivity
 import ir.airport.myapplication.Pojo.Result
 import ir.airport.myapplication.R
@@ -18,6 +20,7 @@ import ir.airport.myapplication.Retrofit.VMFactoryProvider
 import ir.airport.myapplication.Utils.Consts
 import ir.airport.myapplication.Utils.Consts.Companion.MOVIE_ID
 import kotlinx.android.synthetic.main.activity_movie_info.*
+
 
 class MovieInfoActivity : AppCompatActivity() {
     lateinit var vm: MovieInfoVM
@@ -34,6 +37,13 @@ class MovieInfoActivity : AppCompatActivity() {
         vm.getLiveInfo().observe(this, Observer {
             progressBar.visibility = View.INVISIBLE
             showRecyclerList(it.results)
+        })
+        edtSearch.setOnEditorActionListener(OnEditorActionListener { v, actionId, event ->
+            if (event != null && event.keyCode === KeyEvent.KEYCODE_ENTER || actionId == EditorInfo.IME_ACTION_DONE) {
+
+                imgSrch.performClick()
+            }
+            false
         })
 
         imgSrch.setOnClickListener {

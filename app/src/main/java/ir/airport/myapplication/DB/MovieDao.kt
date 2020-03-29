@@ -20,8 +20,8 @@ interface MovieDao {
     @Query("SELECT DISTINCT * FROM Movie GROUP BY Title")
     fun getMovieList(): List<MovieClass>
 
-    @Query("SELECT * FROM Movie WHERE MovId=MovId")
-    fun getaSpecialMovie(): MovieClass
+    @Query("SELECT * FROM Movie WHERE MovId = :MovId")
+    fun getaSpecialMovie(MovId:String): List<MovieClass>
 
     @Query("DELETE FROM Movie")
     fun deleteAll()

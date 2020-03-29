@@ -41,15 +41,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
+        <ImageButton
             android:id="@+id/btnSave"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="220dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="260dp"
             android:layout_marginEnd="32dp"
-            android:background="@drawable/button"
-            android:text="Save"
-            android:textColor="#fff"
+            android:background="@color/transparent"
+            android:src="@drawable/likefirst"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1"
@@ -57,7 +56,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
 
-        </Button>
+        </ImageButton>
 
 
         <TextView

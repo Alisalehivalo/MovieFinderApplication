@@ -18,6 +18,12 @@ android {
             keyAlias = 'keystore'
             keyPassword '123321'
         }
+        signingconfig {
+            storeFile file('C:\\Users\\Salehi\\Desktop\\MovApplication-master\\key.jks')
+            storePassword '123321'
+            keyAlias = 'key'
+            keyPassword '123321'
+        }
     }
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
@@ -30,13 +36,15 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.signingconfig
     }
 
     buildTypes {
         release {
-            shrinkResources true
-            minifyEnabled true
+            shrinkResources false
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.signingconfig
         }
     }
     compileOptions {
@@ -45,6 +53,9 @@ android {
     }
     dataBinding {
         enabled = true
+    }
+    repositories {
+        jcenter()
     }
 
 }

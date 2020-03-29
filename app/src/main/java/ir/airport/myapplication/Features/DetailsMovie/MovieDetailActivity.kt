@@ -90,6 +90,7 @@ class MovieDetailActivity : AppCompatActivity() {
                     Log.d("Error",it.message)
 
                 })
+            btnSave.setBackgroundResource(R.drawable.likethree);
 
             Toast.makeText(this@MovieDetailActivity,"Movie data Saved",Toast.LENGTH_LONG).show()
             //InsertTask(this@MovieDetailActivity, movieClass).execute()
